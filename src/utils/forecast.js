@@ -10,7 +10,9 @@ const forecast = (lat, lng, callback) => {
             const summary = body.daily.data[0].summary;
             const temperature = body.currently.temperature;
             const precipitation = body.currently.precipProbability * 100;
-            callback(undefined, summary + ' It is currently ' + temperature + ' degress out and there is ' + precipitation + ' % chance of raining!');
+            const temperatureHigh = body.daily.data[0].temperatureHigh;
+            const temperatureLow = body.daily.data[0].temperatureLow;
+            callback(undefined, summary + ' It is currently ' + temperature + ' degress out and there is ' + precipitation + ' % chance of raining!' + ' with a high of ' + temperatureHigh + ' and a low of ' + temperatureLow + 'today.');
         }
     });
 }
